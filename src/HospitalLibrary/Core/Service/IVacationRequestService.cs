@@ -19,5 +19,7 @@ namespace HospitalLibrary.Core.Service
         void CreateUrgentVacation(int doctorId, DateTime start, DateTime end, VacationRequest vacationRequest);
         public void approveVacationRequest(int vacationRequestId);
         public void NotapproveVacationRequest(int vacationRequestId);
-    }
+		IEnumerable<VacationRequest> GetAllNotApprovedRequests();
+
+	}
 }

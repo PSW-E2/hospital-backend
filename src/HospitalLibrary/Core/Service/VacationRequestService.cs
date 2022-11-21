@@ -102,5 +102,10 @@ namespace HospitalLibrary.Core.Service
 
 
         }
-    }
+
+		public IEnumerable<VacationRequest> GetAllNotApprovedRequests()
+		{
+			return _vacationRequestRepository.GetAll().Where(r => r.Status == VacationRequestStatus.NotApproved).ToList();
+		}
+	}
 }
