@@ -99,8 +99,11 @@ namespace HospitalLibrary.Core.Service
         public void NotapproveVacationRequest(int vacationRequestId)
         {
             _vacationRequestRepository.NotapproveVacationRequest(vacationRequestId);
-
-
         }
-    }
+
+		public IEnumerable<VacationRequest> GetAllNotApprovedRequests()
+		{
+			return _vacationRequestRepository.GetAll().Where(r => r.Status == VacationRequestStatus.NotApproved).ToList();
+		}
+	}
 }
