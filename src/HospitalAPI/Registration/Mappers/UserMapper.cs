@@ -10,7 +10,7 @@ namespace HospitalAPI.Registration.Mappers
     {
         public UserDTO ToDTO(User model)
         {
-            return new UserDTO(model.Email, model.Password);
+            return new UserDTO(model.Email, model.Password.PasswordText);
         }
 
         public List<UserDTO> ToDTO(List<User> model)
@@ -18,7 +18,7 @@ namespace HospitalAPI.Registration.Mappers
             List<UserDTO> users = new List<UserDTO>();
             foreach (User user in model)
             {
-                users.Add(new UserDTO(user.Email, user.Password));
+                users.Add(new UserDTO(user.Email, user.Password.PasswordText));
             }
             return users;
         }

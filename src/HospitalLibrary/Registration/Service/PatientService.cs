@@ -68,7 +68,7 @@ namespace HospitalLibrary.Registration.Service
 
             //User u = _userRepository.GetByEmail(user.Email);
 
-            patient.UserId = user.UserId;
+            patient.UserId = user.Id;
 
             _patientRepository.Register(patient);
 

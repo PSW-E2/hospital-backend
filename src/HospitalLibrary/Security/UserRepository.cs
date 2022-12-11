@@ -35,7 +35,7 @@ namespace HospitalLibrary.Security
         {
             foreach (User user in GetAll())
             {
-                if (user.UserId == id)
+                if (user.Id == id)
                 {
                     return user;
                 }

@@ -259,13 +259,18 @@ namespace HospitalLibrary.Settings
 
                new InpatientTreatmentTherapy() { InpatientTreatmentTherapyId = 1, InpatientTreatmentId = 1 }
            );
-            modelBuilder.Entity<User>().HasData(
-                new User() { UserId = 1, Email = "email", Password = "password", Role = UserRole.patient}
-            );
+            /*modelBuilder.Entity<User>().HasData(
+                new User() { Id = 1, Email = "email", Password = new Password("123"), Role = UserRole.patient}
+            );*/
 
             modelBuilder.Entity<PhysicianSchedule>()
                 .Property(b => b.WorkTimes)
                 .HasColumnType("jsonb");
+
+            modelBuilder.Entity<User>()
+                .Property(b => b.Password)
+                .HasColumnType("jsonb");
+
 
             modelBuilder.Entity<Symptom>().HasData(
                new Symptom() { SymptomId = 1, Name = "High blood presure" },
@@ -274,6 +279,8 @@ namespace HospitalLibrary.Settings
            );
 
             modelBuilder.Entity<Vacation>().HasKey(v => v.Id);
+
+            modelBuilder.Entity<User>().HasKey(v => v.Id);
 
 
             base.OnModelCreating(modelBuilder);

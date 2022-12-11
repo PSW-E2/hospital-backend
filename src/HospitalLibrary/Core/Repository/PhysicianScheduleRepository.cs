@@ -48,6 +48,25 @@ namespace HospitalLibrary.Core.Repository
             return _context.PhysicianSchedules.Include(r => r.WorkTimes).Include(r => r.Appointments).Include(r => r.Vacations).ToList();
         }
 
+        public List<Appointment> GetAllAppointments(int patientId)
+        {
+            if (patientId == 0)
+            {
+                List<Appointment> appointments = new List<Appointment>();
+                
+                Appointment temp1 = new Appointment(1, DateTime.Now);
+                appointments.Add(temp1);
+                Appointment temp2 = new Appointment(2, DateTime.Now);
+                appointments.Add(temp2);
+                Appointment temp3 = new Appointment(3, DateTime.Now);
+                appointments.Add(temp3);
+
+                return appointments;
+            }
+
+            return _context.Appointments.ToList();
+        }
+
         public PhysicianSchedule GetById(int id)
         {
             return _context.PhysicianSchedules.Find(id);

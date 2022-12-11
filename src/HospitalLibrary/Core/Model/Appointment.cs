@@ -6,6 +6,8 @@ namespace HospitalLibrary.Core.Model
 {
     public class Appointment
     {
+        
+
         public int AppointmentId { get; set; }
         [Required]
         public DateTime Start { get; set; }
@@ -15,7 +17,15 @@ namespace HospitalLibrary.Core.Model
         public int? PatientId { get; set; }
         [ForeignKey("PatientId")]
         public virtual Patient Patient { get; set; }
+        public bool IsDeleted { get; set; }
 
+        public Appointment() { }
+
+        public Appointment(int id, DateTime time)
+        {
+            this.AppointmentId = id;
+            this.Start = time;
+        }
 
     }
 }

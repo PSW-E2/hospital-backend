@@ -30,7 +30,7 @@ namespace HospitalLibrary.Security
 
             if (user == null) return null;
 
-            return _jwtGenerator.GenerateAccessToken(user.UserId, user.Role.ToString());
+            return _jwtGenerator.GenerateAccessToken(user.Id, user.Role.ToString());
         }
         public User GetById(int id) 
         {

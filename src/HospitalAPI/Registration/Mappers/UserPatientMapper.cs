@@ -1,5 +1,6 @@
 ﻿using HospitalAPI.Mappers;
 using HospitalAPI.Registration.Dtos;
+using HospitalLibrary.Core.Model;
 using HospitalLibrary.SharedModel;
 using System.Collections.Generic;
 
@@ -22,7 +23,7 @@ namespace HospitalAPI.Registration.Mappers
             User user = new User();
 
             user.Email = dto.Email;
-            user.Password = dto.Password;
+            user.Password = new Password(dto.Password);
             user.Role = UserRole.patient;
 
             return user;

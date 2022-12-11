@@ -31,6 +31,11 @@ namespace HospitalLibrary.Core.Service
             return _physicianScheduleRepository.GetAll();
         }
 
+        public List<Appointment> GetAllAppointments(int patientId)
+        {
+            return _physicianScheduleRepository.GetAllAppointments(patientId);
+        }
+
         public List<Appointment> GetAvailableAppointments(int doctorId, DateTime date)
         {
             throw new NotImplementedException();

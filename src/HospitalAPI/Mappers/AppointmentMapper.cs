@@ -58,7 +58,7 @@ namespace HospitalAPI.Mappers
                 appointmentDTO.AppointmentId = appointment.AppointmentId;
                 appointmentDTO.Date = appointment.Start.Date;
                 appointmentDTO.Time = appointment.Start.Hour.ToString() + ":" + appointment.Start.Minute.ToString();
-                appointmentDTO.PatientId = (int)appointment.PatientId;
+                //appointmentDTO.PatientId = (int)appointment.PatientId;
                 appointmentDTOs.Add(appointmentDTO);
             }
 

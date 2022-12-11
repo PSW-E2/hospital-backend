@@ -15,5 +15,6 @@ namespace HospitalLibrary.Core.Repository
         void Update(PhysicianSchedule physicianSchedule);
         void Delete(PhysicianSchedule physicianSchedule);
         PhysicianSchedule Get(int doctorId);
+        List<Appointment> GetAllAppointments(int patientId);
     }
 }

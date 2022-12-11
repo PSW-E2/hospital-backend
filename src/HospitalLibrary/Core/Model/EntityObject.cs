@@ -18,7 +18,7 @@
             return Id == entityObject.Id;
         }
 
-        public int GetHashCode()
+        public override int GetHashCode()
         {
             return Id;
         }

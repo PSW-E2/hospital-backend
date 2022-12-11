@@ -12,24 +12,33 @@ namespace HospitalAPI.Controllers
     [ApiController]
     public class AppointmentsController : ControllerBase
     {
-    //    private readonly IAppointmentService _appointmentService;
-    //    private readonly IGenericMapper<Appointment, AppointmentDTO> _appointmentMapper;
+
+
+
+
+
+
+
+
+
+
+        private readonly IPhysicianScheduleService _physicianScheduleService;
+        private readonly IGenericMapper<Appointment, AppointmentDTO> _appointmentMapper;
     //    private readonly INotificationService _notificationService;
 
 
-    //    public AppointmentsController(IAppointmentService appointmentService, IGenericMapper<Appointment, AppointmentDTO> appointmentMapper, INotificationService notificationService)
-    //    {
-    //        _appointmentService = appointmentService;
-    //        _appointmentMapper = appointmentMapper;
-    //        _notificationService = notificationService;
-    //    }
+        public AppointmentsController(IPhysicianScheduleService physicianScheduleService, IGenericMapper<Appointment, AppointmentDTO> appointmentMapper)
+        {
+            _physicianScheduleService = physicianScheduleService;
+            _appointmentMapper = appointmentMapper;
+        }
 
-    //    [HttpGet]
-    //    public ActionResult GetAll()
-    //    {
-    //        return Ok(_appointmentMapper.ToDTO(_appointmentService.GetAll().ToList()));
-    //    }
-
+    /*    [HttpGet]
+        public ActionResult GetAll()
+        {
+            return Ok(_appointmentMapper.ToDTO(_appointmentService.GetAll().ToList()));
+        }
+    */
     //    [HttpPost]
     //    public ActionResult Create(AppointmentDTO appointmentDTO)
     //    {
@@ -57,11 +66,11 @@ namespace HospitalAPI.Controllers
     //        return Ok(_appointmentMapper.ToDTO(appointment));
     //    }
 
-    //    [HttpGet("doctorAppointments/{doctorId}")]
-    //    public ActionResult GetDoctorAppointments(int doctorId)
-    //    {
-    //        return Ok(_appointmentMapper.ToDTO(_appointmentService.GetDoctorAppointments(doctorId)));
-    //    }
+        [HttpGet("id/{patientId}")]
+        public ActionResult GetAppointments(int patientId)
+        {
+            return Ok(_appointmentMapper.ToDTO(_physicianScheduleService.GetAllAppointments(patientId)));
+        }
 
 
     //    // DELETE api/appointments/2

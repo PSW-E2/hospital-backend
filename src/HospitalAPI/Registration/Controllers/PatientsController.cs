@@ -85,7 +85,7 @@ namespace HospitalAPI.Registration.Controllers
 
             await _patientService.Register(user, patient, medicalRecord);
 
-            return CreatedAtAction("GetById", new { id = user.UserId }, user);
+            return CreatedAtAction("GetById", new { id = user.Id }, user);
             
         }
 
