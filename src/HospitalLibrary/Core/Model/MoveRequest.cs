@@ -15,10 +15,10 @@ namespace HospitalLibrary.Core.Model
         public int toRoomId { get; set; }
         public string equipment { get; set; }
         public int quantity { get; set; }
-        
+
 
 
 
 
     }
-
+}
