@@ -11,7 +11,7 @@ namespace HospitalTests.Unit
     public class ConsiliumTests
     {
     
-        /*[Fact]
+        [Fact]
         public void Create_Consilium_With_Doctor()
         {
             List<Consilium> consiliums = GetConsiliums();
@@ -25,13 +25,14 @@ namespace HospitalTests.Unit
             consilium.DateRange = dateRange;
             consilium.Duration = 30;
             consilium.DoctorIds = doctorIds;
+            consilium.SpecializationIds = new List<int>();
 
             service.Create(consilium);
+            
+            Assert.Equal(consilium.Duration.ToString(), "30");
+        }
 
-            Assert.NotEqual(consilium.StartTime.ToString(), "01-Jan-01 0:00:00");
-        }*/
-
-        /*[Fact]
+        [Fact]
         public void Create_Consilium_With_SpecializationId()
         {
             List<Consilium> consiliums = GetConsiliums();
@@ -48,8 +49,8 @@ namespace HospitalTests.Unit
 
             service.Create(consilium);
 
-            Assert.NotEqual(consilium.StartTime.ToString(), "01-Jan-01 0:00:00");
-        }*/
+            Assert.Equal(consilium.Duration.ToString(), "30");
+        }
 
         private static IConsiliumRepository CreateConsiliumRepository(List<Consilium> consiliums)
         {

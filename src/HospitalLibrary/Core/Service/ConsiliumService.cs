@@ -20,6 +20,11 @@ namespace HospitalLibrary.Core.Service
             _physicianScheduleRepository = physicianScheduleRepository;          
         }
 
+        public ConsiliumService(IConsiliumRepository consiliumRepository)
+        {
+            _consiliumRepository = consiliumRepository;
+        }
+
         public void Create(Consilium consilium)
         {
             _consiliumRepository.Create(consilium);
