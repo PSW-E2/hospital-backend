@@ -1,12 +1,13 @@
-﻿using System;
+﻿using HospitalLibrary.Core.Model;
+using System;
 
 namespace HospitalLibrary.Feedbacks.Model
 {
-    public class Feedback
+    public class Feedback : EntityObject
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public bool Privatisation { get; set; }
-        public string Textt { get; set; }
+        public FeedbackText Textt { get; }
         public string User { get; set; }
         public string Date { get; set; }
         public bool IsDisplayedPublic { get; set; }
