@@ -186,9 +186,9 @@ namespace HospitalLibrary.Settings
 
             modelBuilder.Entity<Feedback>().HasData(
 
-                new Feedback() { Id = 1, Textt = "Awesome clinic!", User = "Милош", Date = "25.10.2022" },
-                new Feedback() { Id = 2, Textt = "It's okay... I guess.", User = "Немања", Date = "25.10.2022" },
-                new Feedback() { Id = 3, Textt = "Awful.", User = "Огњен", Date = "25.10.2022" }
+                new Feedback() { Id = 1, User = "Милош", Date = "25.10.2022" },
+                new Feedback() { Id = 2, User = "Немања", Date = "25.10.2022" },
+                new Feedback() { Id = 3, User = "Огњен", Date = "25.10.2022" }
 
             );
 
@@ -276,6 +276,9 @@ namespace HospitalLibrary.Settings
                 .Property(b => b.DateRange)
                 .HasColumnType("jsonb");
 
+            modelBuilder.Entity<Feedback>()
+                .Property(b => b.Textt)
+                .HasColumnType("jsonb");
 
             base.OnModelCreating(modelBuilder);
         }

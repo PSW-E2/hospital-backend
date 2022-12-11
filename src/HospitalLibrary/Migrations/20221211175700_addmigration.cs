@@ -6,7 +6,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace HospitalLibrary.Migrations
 {
-    public partial class migration : Migration
+    public partial class addmigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -125,7 +125,6 @@ namespace HospitalLibrary.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Privatisation = table.Column<bool>(type: "boolean", nullable: false),
-                    Textt = table.Column<string>(type: "text", nullable: true),
                     User = table.Column<string>(type: "text", nullable: true),
                     Date = table.Column<string>(type: "text", nullable: true),
                     IsDisplayedPublic = table.Column<bool>(type: "boolean", nullable: false)
@@ -663,12 +662,12 @@ namespace HospitalLibrary.Migrations
 
             migrationBuilder.InsertData(
                 table: "Feedbacks",
-                columns: new[] { "Id", "Date", "IsDisplayedPublic", "Privatisation", "Textt", "User" },
+                columns: new[] { "Id", "Date", "IsDisplayedPublic", "Privatisation", "User" },
                 values: new object[,]
                 {
-                    { 3, "25.10.2022", false, false, "Awful.", "Огњен" },
-                    { 2, "25.10.2022", false, false, "It's okay... I guess.", "Немања" },
-                    { 1, "25.10.2022", false, false, "Awesome clinic!", "Милош" }
+                    { 3, "25.10.2022", false, false, "Огњен" },
+                    { 2, "25.10.2022", false, false, "Немања" },
+                    { 1, "25.10.2022", false, false, "Милош" }
                 });
 
             migrationBuilder.InsertData(
@@ -789,9 +788,9 @@ namespace HospitalLibrary.Migrations
                 columns: new[] { "VacationRequestId", "DoctorId", "EndDate", "Reason", "StartDate", "Status", "Urgency" },
                 values: new object[,]
                 {
-                    { 2, 4, new DateTime(2022, 12, 30, 17, 37, 32, 584, DateTimeKind.Local).AddTicks(6160), "Tired", new DateTime(2022, 12, 25, 17, 37, 32, 584, DateTimeKind.Local).AddTicks(6134), 2, "Urgent" },
-                    { 1, 4, new DateTime(2022, 12, 25, 17, 37, 32, 584, DateTimeKind.Local).AddTicks(3942), "Tired", new DateTime(2022, 12, 20, 17, 37, 32, 577, DateTimeKind.Local).AddTicks(4376), 1, "NoUrgent" },
-                    { 3, 4, new DateTime(2023, 1, 4, 17, 37, 32, 584, DateTimeKind.Local).AddTicks(6173), "Tired", new DateTime(2022, 12, 30, 17, 37, 32, 584, DateTimeKind.Local).AddTicks(6169), 0, "NoUrgent" }
+                    { 2, 4, new DateTime(2022, 12, 31, 18, 57, 0, 121, DateTimeKind.Local).AddTicks(1450), "Tired", new DateTime(2022, 12, 26, 18, 57, 0, 121, DateTimeKind.Local).AddTicks(1436), 2, "Urgent" },
+                    { 1, 4, new DateTime(2022, 12, 26, 18, 57, 0, 120, DateTimeKind.Local).AddTicks(9777), "Tired", new DateTime(2022, 12, 21, 18, 57, 0, 118, DateTimeKind.Local).AddTicks(5332), 1, "NoUrgent" },
+                    { 3, 4, new DateTime(2023, 1, 5, 18, 57, 0, 121, DateTimeKind.Local).AddTicks(1457), "Tired", new DateTime(2022, 12, 31, 18, 57, 0, 121, DateTimeKind.Local).AddTicks(1454), 0, "NoUrgent" }
                 });
 
             migrationBuilder.InsertData(
