@@ -57,12 +57,6 @@ namespace HospitalAPI.Registration.Controllers
             return Ok(_patientMapper.ToDTO(_patientService.GetById(id)));
         }
 
-        [HttpGet("getPatientInfo/{id}")]
-        public ActionResult getPatientInfo(int id)
-        {
-            return Ok(_patientMapper.ToDTO(_patientService.GetById(id)));
-        }
-
         // POST api/patients
         [HttpPost]
         public async Task<ActionResult> Register(PatientDTO patientDTO)
