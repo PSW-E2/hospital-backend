@@ -272,6 +272,19 @@ namespace HospitalLibrary.Settings
                 .Property(b => b.Password)
                 .HasColumnType("jsonb");
 
+            modelBuilder.Entity<PhysicianSchedule>()
+                .Property(b => b.Appointments)
+                .HasColumnType("jsonb");
+
+            modelBuilder.Entity<PhysicianSchedule>()
+                .Property(b => b.Vacations)
+                .HasColumnType("jsonb");
+
+            modelBuilder.Entity<DateRange>().HasNoKey();
+
+            modelBuilder.Entity<Appointment>()
+                .Property(b => b.ScheduledDate)
+                .HasColumnType("jsonb");
 
             modelBuilder.Entity<Symptom>().HasData(
                new Symptom() { SymptomId = 1, Name = "High blood presure" },

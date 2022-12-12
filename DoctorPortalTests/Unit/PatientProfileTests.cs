@@ -18,8 +18,8 @@ namespace HospitalTests.Unit
         //[Fact]
         //public void Get_patient_by_id()
         //{
-            //List<Patient> patients = GetPatients();
-            //PatientService service = new(CreatePatientRepository(patients), null, null, null);
+        //    List<Patient> patients = GetPatients();
+        //    PatientService service = new(CreatePatientRepository(patients));
 
         //    Patient patient = service.GetById(1);
 

@@ -2,6 +2,7 @@
 using HospitalLibrary.Core.Model;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,12 +12,17 @@ namespace HospitalAPI.Mappers
     {
         public Appointment ToModel(AppointmentDTO appointmentDTO) {
             Appointment appointment = new Appointment();
-            appointment.AppointmentId = appointmentDTO.AppointmentId;
+            appointment.Id = appointmentDTO.AppointmentId;
+            string day = appointmentDTO.Date.Split("/")[1];
+            string month = appointmentDTO.Date.Split("/")[0];
+            string year = appointmentDTO.Date.Split("/")[2];
             string hours = appointmentDTO.Time.Split(":")[0];
             string minutes = appointmentDTO.Time.Split(":")[1];
-            appointment.Start = appointmentDTO.Date;
-            appointment.Start = appointment.Start.AddHours(Int32.Parse(hours));
-            appointment.Start = appointment.Start.AddMinutes(Int32.Parse(minutes));
+            Console.WriteLine(day + " " + month + " " + year);
+            DateTime date = new DateTime(Int32.Parse(year), Int32.Parse(month), Int32.Parse(day));
+            DateTime start = date.AddHours(Int32.Parse(hours)).AddMinutes(Int32.Parse(minutes));
+            DateTime end = date.AddHours(Int32.Parse(hours)).AddMinutes(Int32.Parse(minutes));
+            appointment.ScheduledDate = new DateRange(date, date.AddMinutes(30));
             appointment.PatientId = appointmentDTO.PatientId;
 
             return appointment;
@@ -27,12 +33,16 @@ namespace HospitalAPI.Mappers
             foreach (var appointmentDTO in appointmentDTOs) 
             {
                 Appointment appointment = new Appointment();
-                appointment.AppointmentId = appointmentDTO.AppointmentId;
+                appointment.Id = appointmentDTO.AppointmentId;
+                string day = appointmentDTO.Date.Split("/")[1];
+                string month = appointmentDTO.Date.Split("/")[0];
+                string year = appointmentDTO.Date.Split("/")[2];
                 string hours = appointmentDTO.Time.Split(":")[0];
                 string minutes = appointmentDTO.Time.Split(":")[1];
-                appointment.Start = appointmentDTO.Date;
-                appointment.Start.AddHours(Int32.Parse(hours));
-                appointment.Start.AddMinutes(Int32.Parse(minutes));
+                DateTime date = new DateTime(Int32.Parse(year), Int32.Parse(month), Int32.Parse(day));  
+                DateTime start = date.AddHours(Int32.Parse(hours)).AddMinutes(Int32.Parse(minutes));
+                DateTime end = date.AddHours(Int32.Parse(hours)).AddMinutes(Int32.Parse(minutes));
+                appointment.ScheduledDate = new DateRange(start, end.AddMinutes(30));
                 appointment.PatientId = appointmentDTO.PatientId;
                 appointments.Add(appointment);
             }
@@ -42,11 +52,13 @@ namespace HospitalAPI.Mappers
 
         public AppointmentDTO ToDTO(Appointment appointment) {
             AppointmentDTO appointmentDTO = new AppointmentDTO();
-            appointmentDTO.AppointmentId = appointment.AppointmentId;
-            appointmentDTO.Date = appointment.Start.Date;
-            appointmentDTO.Time = appointment.Start.Hour.ToString() + ":" + appointment.Start.Minute.ToString();
+            appointmentDTO.AppointmentId = appointment.Id;
+            appointmentDTO.Date = appointment.ScheduledDate.Start.ToString("d", CultureInfo.GetCultureInfo("en-ES"));
+            appointmentDTO.Time = appointment.ScheduledDate.Start.Hour.ToString() + ":" + appointment.ScheduledDate.Start.Minute.ToString();
+            appointmentDTO.DoctorId = (int)appointment.DoctorId;
             appointmentDTO.PatientId = (int)appointment.PatientId;
-
+            appointmentDTO.Name = appointment.Doctor.Name;
+            appointmentDTO.Surname = appointment.Doctor.Surname;
             return appointmentDTO;
         }
 
@@ -55,10 +67,13 @@ namespace HospitalAPI.Mappers
             foreach (var appointment in appointments) 
             {
                 AppointmentDTO appointmentDTO = new AppointmentDTO();
-                appointmentDTO.AppointmentId = appointment.AppointmentId;
-                appointmentDTO.Date = appointment.Start.Date;
-                appointmentDTO.Time = appointment.Start.Hour.ToString() + ":" + appointment.Start.Minute.ToString();
-                //appointmentDTO.PatientId = (int)appointment.PatientId;
+                appointmentDTO.AppointmentId = appointment.Id;
+                appointmentDTO.Date = appointment.ScheduledDate.Start.ToString("d", CultureInfo.GetCultureInfo("en-ES"));
+                appointmentDTO.Time = appointment.ScheduledDate.Start.Hour.ToString() + ":" + appointment.ScheduledDate.Start.Minute.ToString();
+                appointmentDTO.DoctorId = (int)appointment.DoctorId;
+                appointmentDTO.PatientId = (int)appointment.PatientId;
+                appointmentDTO.Name = appointment.Doctor.Name;
+                appointmentDTO.Surname = appointment.Doctor.Surname;
                 appointmentDTOs.Add(appointmentDTO);
             }
 

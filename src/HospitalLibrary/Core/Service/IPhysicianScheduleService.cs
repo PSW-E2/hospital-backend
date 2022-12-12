@@ -18,5 +18,6 @@ namespace HospitalLibrary.Core.Service
         void Schedule(int doctorId, Appointment appointment);
         void TransferAppointment(int doctorId, Appointment appointment);
         List<Appointment> GetAllAppointments(int patientId);
+        List<Appointment> GetRecommendedAppointments(DateRange dateRange, int doctorId, string priority);
     }
 }
