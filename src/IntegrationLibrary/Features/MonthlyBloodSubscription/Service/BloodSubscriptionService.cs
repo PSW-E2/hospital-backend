@@ -32,6 +32,11 @@ namespace IntegrationLibrary.Features.MonthlyBloodSubscription.Service
             _userService = userService;
             _bloodTypeMapper = new ReceivedBloodTypeMapper();
         }
+
+        public BloodSubscriptionService(IBloodSubscriptionRepository repo)
+        {
+            _bloodSubscriptionRepository = repo;
+        }
         public IEnumerable<BloodSubscription> GetAll()
         {
             return _bloodSubscriptionRepository.GetAll();
