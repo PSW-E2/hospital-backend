@@ -89,32 +89,5 @@ namespace HospitalLibrary.Core.Model
             return appointments;
         }
 
-        public List<Appointment> GetAppointments(int patientId)
-        {
-            List<Appointment> appointments = new List<Appointment>();
-            
-            foreach (Appointment appointment in Appointments)
-            {
-                /*if (appointment.PatientId == patientId)
-                {
-                    appointments.Add(appointment);
-                }*/
-
-                if (patientId == 0)
-                {
-                    Appointment temp1 = new Appointment(1, DateTime.Now);
-                    appointments.Add(temp1);
-                    Appointment temp2 = new Appointment(2, DateTime.Now);
-                    appointments.Add(temp2);
-
-                }
-
-
-            }
-            return appointments;
-
-        }
-
-
     }
 }

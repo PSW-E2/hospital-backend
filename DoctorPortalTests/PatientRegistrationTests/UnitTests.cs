@@ -68,7 +68,7 @@ namespace HospitalTests.PatientRegistrationTests
         {
             return new()
             {
-                new Patient() {IsAccountActivated = false, Name = "Pera", PatientId = 1, Surname = "Peric"},
+                new Patient() { IsAccountActivated = false, Name = "Pera", PatientId = 1, Surname = "Peric"},
                 new Patient() { IsAccountActivated = false, Name = "Pera2", PatientId = 2, Surname = "Peric2"},
                 new Patient() { IsAccountActivated = false, Name = "Pera3", PatientId = 3, Surname = "Peric3" }
             };
