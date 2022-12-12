@@ -10,7 +10,7 @@ namespace HospitalLibrary.Feedbacks.Model
 {
     public class FeedbackText : ValueObject
     {
-        public string Textt { get; set; }
+        public string Textt { get; }
 
         public FeedbackText() { }
 
