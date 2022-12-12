@@ -16,6 +16,17 @@ namespace HospitalLibrary.Core.Model
         [ForeignKey("PatientId")]
         public virtual Patient Patient { get; set; }
         public bool IsDeleted { get; set; }
+        public DateTime Start { get; set; }
+        public Appointment() { }
+        public Appointment(int appointmentId, DateTime start, string name, string surname)
+        {
+            Id = appointmentId;
+            Start = start;
+            Doctor = new Doctor();
+            Doctor.DoctorId = 0;
+            Doctor.Name = name;
+            Doctor.Surname = surname;
+        }
 
         public bool CheckIfDateRangeInAppointment(DateRange dateRange) 
         {

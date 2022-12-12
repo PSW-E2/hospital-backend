@@ -12,7 +12,10 @@ namespace HospitalLibrary.Core.Model
         public List<WorkTime> WorkTimes { get; set; }
         public List<Appointment> Appointments { get; set; }
         public List<Vacation> Vacations { get; set; }
-
+        public PhysicianSchedule() 
+        { 
+        
+        }
         public PhysicianSchedule(int physicianScheduleId, int doctorId, List<WorkTime> workTimes, List<Appointment> appointments)
         {
             DoctorId = doctorId;

@@ -97,11 +97,11 @@ namespace HospitalLibrary.Core.Repository
             {
                 List<Appointment> appointments = new List<Appointment>();
                 
-                Appointment temp1 = new Appointment(1, DateTime.Now);
+                Appointment temp1 = new Appointment(1, DateTime.Now, "Marko", "Markovic");
                 appointments.Add(temp1);
-                Appointment temp2 = new Appointment(2, DateTime.Now);
+                Appointment temp2 = new Appointment(2, DateTime.Now, "Pera", "Peric");
                 appointments.Add(temp2);
-                Appointment temp3 = new Appointment(3, DateTime.Now);
+                Appointment temp3 = new Appointment(3, DateTime.Now, "Mira", "Miric");
                 appointments.Add(temp3);
 
                 return appointments;

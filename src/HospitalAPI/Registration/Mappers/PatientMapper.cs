@@ -45,10 +45,10 @@ namespace HospitalAPI.Registration.Mappers
         public PatientDTO ToDTO(Patient patient)
         {
             PatientDTO patientDTO = new PatientDTO();
-            patientDTO.PatientId = patient.PatientId;
+            /*patientDTO.PatientId = patient.PatientId;
             patientDTO.Name = patient.Name;
             patientDTO.Surname = patient.Surname;
-            patientDTO.IsAccountActivated = patient.IsAccountActivated;
+            patientDTO.IsAccountActivated = patient.IsAccountActivated;*/
 
             return patientDTO;
         }

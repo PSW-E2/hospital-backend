@@ -34,7 +34,8 @@ namespace HospitalLibrary.Registration.Repository
 
         public Patient GetById(int id)
         {
-            return _context.Patients.Find(id);
+            //return _context.Patients.Find(id);
+            return null;
         }
 
         public void Update(Patient patient)
