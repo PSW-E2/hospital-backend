@@ -119,17 +119,12 @@ namespace HospitalAPI.Controllers
         }
 
 
+		[HttpGet("notApproved")]
+		public ActionResult GetAllNotApprovedRequests()
+		{
+			return Ok(_vacationRequestMapper.ToDTO(_vacationRequestService.GetAllNotApprovedRequests().ToList()));
+		}
 
 
-
-
-
-
-
-
-
-
-
-
-    }
+	}
 }
