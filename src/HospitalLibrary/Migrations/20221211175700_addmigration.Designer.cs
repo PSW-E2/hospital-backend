@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace HospitalLibrary.Migrations
 {
     [DbContext(typeof(HospitalDbContext))]
-    [Migration("20221210163733_migration")]
-    partial class migration
+    [Migration("20221211175700_addmigration")]
+    partial class addmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -1584,9 +1584,9 @@ namespace HospitalLibrary.Migrations
                         {
                             VacationRequestId = 1,
                             DoctorId = 4,
-                            EndDate = new DateTime(2022, 12, 25, 17, 37, 32, 584, DateTimeKind.Local).AddTicks(3942),
+                            EndDate = new DateTime(2022, 12, 26, 18, 57, 0, 120, DateTimeKind.Local).AddTicks(9777),
                             Reason = "Tired",
-                            StartDate = new DateTime(2022, 12, 20, 17, 37, 32, 577, DateTimeKind.Local).AddTicks(4376),
+                            StartDate = new DateTime(2022, 12, 21, 18, 57, 0, 118, DateTimeKind.Local).AddTicks(5332),
                             Status = 1,
                             Urgency = "NoUrgent"
                         },
@@ -1594,9 +1594,9 @@ namespace HospitalLibrary.Migrations
                         {
                             VacationRequestId = 2,
                             DoctorId = 4,
-                            EndDate = new DateTime(2022, 12, 30, 17, 37, 32, 584, DateTimeKind.Local).AddTicks(6160),
+                            EndDate = new DateTime(2022, 12, 31, 18, 57, 0, 121, DateTimeKind.Local).AddTicks(1450),
                             Reason = "Tired",
-                            StartDate = new DateTime(2022, 12, 25, 17, 37, 32, 584, DateTimeKind.Local).AddTicks(6134),
+                            StartDate = new DateTime(2022, 12, 26, 18, 57, 0, 121, DateTimeKind.Local).AddTicks(1436),
                             Status = 2,
                             Urgency = "Urgent"
                         },
@@ -1604,9 +1604,9 @@ namespace HospitalLibrary.Migrations
                         {
                             VacationRequestId = 3,
                             DoctorId = 4,
-                            EndDate = new DateTime(2023, 1, 4, 17, 37, 32, 584, DateTimeKind.Local).AddTicks(6173),
+                            EndDate = new DateTime(2023, 1, 5, 18, 57, 0, 121, DateTimeKind.Local).AddTicks(1457),
                             Reason = "Tired",
-                            StartDate = new DateTime(2022, 12, 30, 17, 37, 32, 584, DateTimeKind.Local).AddTicks(6169),
+                            StartDate = new DateTime(2022, 12, 31, 18, 57, 0, 121, DateTimeKind.Local).AddTicks(1454),
                             Status = 0,
                             Urgency = "NoUrgent"
                         });
@@ -1628,9 +1628,6 @@ namespace HospitalLibrary.Migrations
                     b.Property<bool>("Privatisation")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("Textt")
-                        .HasColumnType("text");
-
                     b.Property<string>("User")
                         .HasColumnType("text");
 
@@ -1645,7 +1642,6 @@ namespace HospitalLibrary.Migrations
                             Date = "25.10.2022",
                             IsDisplayedPublic = false,
                             Privatisation = false,
-                            Textt = "Awesome clinic!",
                             User = "Милош"
                         },
                         new
@@ -1654,7 +1650,6 @@ namespace HospitalLibrary.Migrations
                             Date = "25.10.2022",
                             IsDisplayedPublic = false,
                             Privatisation = false,
-                            Textt = "It's okay... I guess.",
                             User = "Немања"
                         },
                         new
@@ -1663,7 +1658,6 @@ namespace HospitalLibrary.Migrations
                             Date = "25.10.2022",
                             IsDisplayedPublic = false,
                             Privatisation = false,
-                            Textt = "Awful.",
                             User = "Огњен"
                         });
                 });

@@ -12,6 +12,5 @@
         public int[] Allergens { get; set; }
         public int DoctorsId { get; set; }
 
-
     }
 }
