@@ -45,7 +45,7 @@ namespace HospitalLibrary.Core.Repository
 
         public IEnumerable<PhysicianSchedule> GetAll()
         {
-            return _context.PhysicianSchedules.Include(r => r.WorkTimes).Include(r => r.Appointments).Include(r => r.Vacations).ToList();
+            return _context.PhysicianSchedules.Include(r => r.Appointments).Include(r => r.Vacations).ToList();
         }
 
         public List<Appointment> GetAllAppointments(int patientId)
@@ -84,6 +84,20 @@ namespace HospitalLibrary.Core.Repository
             {
                 throw;
             }
+        }
+
+        public PhysicianSchedule GetByDoctorId(int id)
+        {
+            List<PhysicianSchedule> physicianSchedules = GetAll().ToList();
+            
+            foreach(PhysicianSchedule physicianSchedule in physicianSchedules)
+            {
+                if(physicianSchedule.DoctorId == id)
+                {
+                    return physicianSchedule;
+                }
+            }
+            return null;
         }
     }
 }

@@ -3,20 +3,13 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace IntegrationLibrary.Migrations
 {
-    public partial class tendermodelexpanded : Migration
+    public partial class bloodrequest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<bool>(
-                name: "HasWon",
-                table: "TenderApplications",
-                type: "boolean",
-                nullable: false,
-                defaultValue: false);
-
-            migrationBuilder.AddColumn<bool>(
-                name: "Finished",
-                table: "EquipmentTenders",
+                name: "Urgent",
+                table: "BloodRequests",
                 type: "boolean",
                 nullable: false,
                 defaultValue: false);
@@ -26,53 +19,49 @@ namespace IntegrationLibrary.Migrations
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "ExpiresOn",
-                value: new DateTime(2022, 12, 20, 19, 21, 40, 455, DateTimeKind.Local).AddTicks(5668));
+                value: new DateTime(2022, 12, 27, 8, 59, 56, 137, DateTimeKind.Local).AddTicks(5481));
 
             migrationBuilder.UpdateData(
                 table: "EquipmentTenders",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "ExpiresOn",
-                value: new DateTime(2022, 12, 20, 19, 21, 40, 470, DateTimeKind.Local).AddTicks(6827));
+                value: new DateTime(2022, 12, 27, 8, 59, 56, 150, DateTimeKind.Local).AddTicks(4343));
 
             migrationBuilder.UpdateData(
                 table: "EquipmentTenders",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "ExpiresOn",
-                value: new DateTime(2022, 12, 20, 19, 21, 40, 470, DateTimeKind.Local).AddTicks(7427));
+                value: new DateTime(2022, 12, 27, 8, 59, 56, 150, DateTimeKind.Local).AddTicks(4832));
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "HasWon",
-                table: "TenderApplications");
-
-            migrationBuilder.DropColumn(
-                name: "Finished",
-                table: "EquipmentTenders");
+                name: "Urgent",
+                table: "BloodRequests");
 
             migrationBuilder.UpdateData(
                 table: "EquipmentTenders",
                 keyColumn: "Id",
                 keyValue: 1,
                 column: "ExpiresOn",
-                value: new DateTime(2022, 12, 18, 19, 51, 50, 156, DateTimeKind.Local).AddTicks(9736));
+                value: new DateTime(2022, 12, 25, 18, 34, 52, 90, DateTimeKind.Local).AddTicks(9925));
 
             migrationBuilder.UpdateData(
                 table: "EquipmentTenders",
                 keyColumn: "Id",
                 keyValue: 2,
                 column: "ExpiresOn",
-                value: new DateTime(2022, 12, 18, 19, 51, 50, 177, DateTimeKind.Local).AddTicks(176));
+                value: new DateTime(2022, 12, 25, 18, 34, 52, 114, DateTimeKind.Local).AddTicks(1112));
 
             migrationBuilder.UpdateData(
                 table: "EquipmentTenders",
                 keyColumn: "Id",
                 keyValue: 3,
                 column: "ExpiresOn",
-                value: new DateTime(2022, 12, 18, 19, 51, 50, 177, DateTimeKind.Local).AddTicks(501));
+                value: new DateTime(2022, 12, 25, 18, 34, 52, 114, DateTimeKind.Local).AddTicks(1702));
         }
     }
 }

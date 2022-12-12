@@ -39,9 +39,8 @@ namespace HospitalLibrary.Settings
         public DbSet<Symptom> Symptoms { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<ExaminationReport> ExaminationReports { get; set; }
-
-
-
+        public DbSet<Consilium> Consiliums { get; set; }
+        public DbSet<MoveRequest> MoveRequests { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             => optionsBuilder
@@ -55,6 +54,8 @@ namespace HospitalLibrary.Settings
         // ne treba se koristiti za aplikaciju u produkciji
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Database.SetInitializer<HospitalDbContext>(null);
+
             modelBuilder.Entity<Equipment>().HasData(
                 new Equipment() { EquipmentType = EquipmentType.Dynamic, Id = 1, RoomId = 1, Name = "Syringe", Quantity = 50 },
                 new Equipment() { EquipmentType = EquipmentType.Dynamic, Id = 2, RoomId = 1, Name = "Tounge depressor", Quantity = 32 },
@@ -277,10 +278,17 @@ namespace HospitalLibrary.Settings
                new Symptom() { SymptomId = 2, Name = "Sore throat" },
                new Symptom() { SymptomId = 3, Name = "Elevated body temperature" }
            );
-
             modelBuilder.Entity<Vacation>().HasKey(v => v.Id);
 
             modelBuilder.Entity<User>().HasKey(v => v.Id);
+            modelBuilder.Entity<Consilium>()
+                .Property(b => b.DateRange)
+                .HasColumnType("jsonb");
+
+            //modelBuilder.Entity<MoveRequest>().HasKey(m => m.fromRoomId);
+            modelBuilder.Entity<MoveRequest>().HasData(
+                new MoveRequest() {id = 1, type="EquipmentMove", fromRoomId = 1, toRoomId = 2, chosenStartTime = new System.DateTime(2022,12,10,15,0,0), duration = new System.TimeSpan(0, 30, 0), equipment = "Syringe", quantity = 2 }
+            );
 
 
             base.OnModelCreating(modelBuilder);

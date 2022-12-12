@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace IntegrationLibrary.Migrations
 {
     [DbContext(typeof(IntegrationDbContext))]
-    [Migration("20221205182141_tender-model-expanded")]
-    partial class tendermodelexpanded
+    [Migration("20221211160502_manager-notification")]
+    partial class managernotification
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -294,8 +294,8 @@ namespace IntegrationLibrary.Migrations
                     b.Property<DateTime?>("ExpiresOn")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<bool>("Finished")
-                        .HasColumnType("boolean");
+                    b.Property<int>("State")
+                        .HasColumnType("integer");
 
                     b.Property<string>("Title")
                         .HasColumnType("text");
@@ -309,24 +309,24 @@ namespace IntegrationLibrary.Migrations
                         {
                             Id = 1,
                             Description = "Congue nisi vitae suscipit tellus mauris. Et leo duis ut diam quam nulla. Porttitor eget dolor morbi non arcu risus quis. Tempor nec feugiat nisl pretium. Pharetra et ultrices neque ornare aenean euismod elementum nisi. Dui sapien eget mi proin sed libero enim sed faucibus. Vitae turpis massa sed elementum tempus. Urna molestie at elementum eu facilisis sed. Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Facilisi cras fermentum odio eu feugiat. Rhoncus aenean vel elit scelerisque. Eget nunc scelerisque viverra mauris in aliquam. Blandit libero volutpat sed cras ornare. Tellus elementum sagittis vitae et leo duis. Est lorem ipsum dolor sit amet consectetur. Ullamcorper malesuada proin libero nunc consequat interdum varius.",
-                            ExpiresOn = new DateTime(2022, 12, 20, 19, 21, 40, 455, DateTimeKind.Local).AddTicks(5668),
-                            Finished = false,
+                            ExpiresOn = new DateTime(2022, 12, 26, 17, 5, 1, 205, DateTimeKind.Local).AddTicks(2190),
+                            State = 0,
                             Title = "Tender 1"
                         },
                         new
                         {
                             Id = 2,
                             Description = "Egestas congue quisque egestas diam in. Pretium aenean pharetra magna ac placerat. Ultrices neque ornare aenean euismod. Eget felis eget nunc lobortis mattis aliquam faucibus purus. Ac feugiat sed lectus vestibulum. Mi proin sed libero enim sed faucibus turpis in eu. Et molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Enim ut tellus elementum sagittis vitae et.",
-                            ExpiresOn = new DateTime(2022, 12, 20, 19, 21, 40, 470, DateTimeKind.Local).AddTicks(6827),
-                            Finished = false,
+                            ExpiresOn = new DateTime(2022, 12, 26, 17, 5, 1, 212, DateTimeKind.Local).AddTicks(4283),
+                            State = 0,
                             Title = "Tender 2"
                         },
                         new
                         {
                             Id = 3,
                             Description = "Nisl nisi scelerisque eu ultrices vitae auctor eu augue ut. Facilisi cras fermentum odio eu feugiat. Rhoncus aenean vel elit scelerisque. Eget nunc scelerisque viverra mauris in aliquam. Blandit libero volutpat sed cras ornare. Tellus elementum sagittis vitae et leo duis. Est lorem ipsum dolor sit amet consectetur. Ullamcorper malesuada proin libero nunc consequat interdum varius.",
-                            ExpiresOn = new DateTime(2022, 12, 20, 19, 21, 40, 470, DateTimeKind.Local).AddTicks(7427),
-                            Finished = false,
+                            ExpiresOn = new DateTime(2022, 12, 26, 17, 5, 1, 212, DateTimeKind.Local).AddTicks(4858),
+                            State = 0,
                             Title = "Tender 3"
                         });
                 });
@@ -448,6 +448,66 @@ namespace IntegrationLibrary.Migrations
                             Amount = 230.0,
                             EquipmentTenderId = 3,
                             Name = "item6"
+                        });
+                });
+
+            modelBuilder.Entity("IntegrationLibrary.Features.MonthlyBloodSubscription.Model.BloodSubscription", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<int>("BloodBankId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("BloodType")
+                        .HasColumnType("integer");
+
+                    b.Property<double>("QuantityInLiters")
+                        .HasColumnType("double precision");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BloodSubscription");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            BloodBankId = 1,
+                            BloodType = 0,
+                            QuantityInLiters = 1.0,
+                            StartDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("IntegrationLibrary.Features.MonthlyBloodSubscription.Model.ManagerNotification", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
+
+                    b.Property<string>("Content")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ManagerNotification");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Content = "This is test notification",
+                            Title = "Test notification"
                         });
                 });
 
