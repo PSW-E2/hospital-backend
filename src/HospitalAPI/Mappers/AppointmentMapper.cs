@@ -67,21 +67,21 @@ namespace HospitalAPI.Mappers
             foreach (var appointment in appointments) 
             {
                 AppointmentDTO appointmentDTO = new AppointmentDTO();
-                /*appointmentDTO.AppointmentId = appointment.Id;
+                appointmentDTO.AppointmentId = appointment.Id;
                 appointmentDTO.Date = appointment.ScheduledDate.Start.ToString("d", CultureInfo.GetCultureInfo("en-ES"));
                 appointmentDTO.Time = appointment.ScheduledDate.Start.Hour.ToString() + ":" + appointment.ScheduledDate.Start.Minute.ToString();
                 appointmentDTO.DoctorId = (int)appointment.DoctorId;
                 appointmentDTO.PatientId = (int)appointment.PatientId;
                 appointmentDTO.Name = appointment.Doctor.Name;
                 appointmentDTO.Surname = appointment.Doctor.Surname;
-                appointmentDTOs.Add(appointmentDTO);*/
+                appointmentDTOs.Add(appointmentDTO);
 
-                appointmentDTO.AppointmentId = appointment.Id;
+                /*appointmentDTO.AppointmentId = appointment.Id;
                 appointmentDTO.Date = appointment.Start.Date.ToString();
                 appointmentDTO.Time = appointment.Start.Hour.ToString() + ":" + appointment.Start.Minute.ToString();
                 appointmentDTO.Name = appointment.Doctor.Name;
                 appointmentDTO.Surname = appointment.Doctor.Surname;
-                appointmentDTOs.Add(appointmentDTO);
+                appointmentDTOs.Add(appointmentDTO);*/
             }
 
             return appointmentDTOs;
