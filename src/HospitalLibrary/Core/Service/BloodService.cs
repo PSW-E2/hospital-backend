@@ -116,7 +116,7 @@ namespace HospitalLibrary.Core.Service
 
         IEnumerable<Blood> IBloodService.GetAll()
         {
-            throw new NotImplementedException();
+            return _bloodRepository.GetAll();
         }
 
         Blood IBloodService.GetById(int id)
