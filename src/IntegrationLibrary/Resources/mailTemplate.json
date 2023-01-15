@@ -1,0 +1,7 @@
+{
+    "Subject": "Welcome",
+    "ToEmail": "",
+    "Attachment": null,
+    "Body": "Please log in on the following link with password sent in this email. Password can be changed in the settings afterwards. Link to the site is: http://localhost:4200/integration/login. Your password is: "
+}
+
